@@ -16,10 +16,30 @@ The read.endf function can only read the pure data. It cannt read meta data from
 Meta data can, however, be assigned to the data. This facilitates
 data from different isotopes or processes etc.
 
-The data read by the function could look like this:
+# Sample call
+pn is the path to the data. If you are reading the data provided with the package
+you can probably find the path as:
+```
+pn.full <- paste(getwd(),"/data/",sep="")}
+
+ 
+```
+df.H2.abs <- read.endf(
+                pn = pn.full,
+                fn="g_1-H-2_0128.endf",
+                line.start=91,
+                line.stop=100,
+                Z = 1,
+                A = 2,
+                element="H",
+                isotope="H-2",
+                process="total",
+                what="cross section for (gamma,abs)")
+```                
+
+The data read by the function should look like this:
 
 ```
-
 #    MeV      barn              file Z A element isotope process
 #1 2.224 0.0000000 g_1-H-2_0128.endf 1 2       H     H-2   total
 #2 2.300 0.0006581 g_1-H-2_0128.endf 1 2       H     H-2   total
@@ -35,9 +55,9 @@ The data read by the function could look like this:
 #4 cross section for (gamma,abs)
 #5 cross section for (gamma,abs)
 #6 cross section for (gamma,abs)
+```
 
-
-# Sample use of package
+# Use case (TOPAS evaluation)
 I used this package (and the data it contains) to evaluate the ability of the Monte-Carlo software TOPAS to
 model photonuclear reactions. The results have been uploaded (March 2023) to the Topas user forum.
 
