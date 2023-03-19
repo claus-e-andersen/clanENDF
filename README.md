@@ -42,8 +42,11 @@ parts of the IAEA ENDF files and assigned meta data to them. Finally,
 I join everything into a single dataframe.
 
 # How to install the package?
+You will need devtools to install the package. You will need dplyr to run the package.
 ```
+install.packages("devtools","dplyr")
 library(devtools)
+library(dplyr)
 install_github("claus-e-andersen/clanENDF)
 library(clanENDF)
 
