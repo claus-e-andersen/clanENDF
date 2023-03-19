@@ -26,15 +26,15 @@ and the call then is;
 ```
 df.H2.abs <- read.endf(
                 pn = pn.full,
-                fn="g_1-H-2_0128.endf",
-                line.start=91,
-                line.stop=100,
+                fn =  "g_1-H-2_0128.endf",
+                line.start = 91,
+                line.stop = 100,
                 Z = 1,
                 A = 2,
-                element="H",
-                isotope="H-2",
-                process="total",
-                what="cross section for (gamma,abs)")
+                element = "H",
+                isotope = "H-2",
+                process = "total",
+                what = "cross section for (gamma,abs)")
 ```                
 
 The data read by the function should look like this:
