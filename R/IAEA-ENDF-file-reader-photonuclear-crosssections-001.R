@@ -51,12 +51,12 @@ read.endf <- function(pn="",
 # fn = file name of ENDF file
 # line.start = Where to start reading from the fine (line number)
 # line.stop  = Where to stop reading from the fine (line number)
-# Z = Atomic number (meta data to be added to the output) 
-# A = Atomic mass (meta data to be added to the output) 
-# element = Element name (meta data to be added to the output) 
-# isotope = Isotope name (meta data to be added to the output) 
-# process = Process name (meta data to be added to the output) 
-# what    = Description (meta data to be added to the output) 
+# Z = Atomic number (meta data to be added to the output)
+# A = Atomic mass (meta data to be added to the output)
+# element = Element name (meta data to be added to the output)
+# isotope = Isotope name (meta data to be added to the output)
+# process = Process name (meta data to be added to the output)
+# what    = Description (meta data to be added to the output)
 #
 # Output:
 # A data frame like this:
@@ -79,7 +79,7 @@ read.endf <- function(pn="",
 
 
 print("Welcome to read.endf")
-print(paste("Now reading file:",fn,"at this location:")) 
+print(paste("Now reading file:",fn,"at this location:"))
 print(pn)
 TT <- readLines(paste(pn,fn,sep=""))
 pos.start <- 1
@@ -91,22 +91,22 @@ for(line in 1:length(TT)){
   TT[line] <- substring(TT[line],pos.start,pos.stop)
   SS <- TT[line]
   pp <- 2
-  x1 <- substring(SS,pp,pp+7)  
+  x1 <- substring(SS,pp,pp+7)
   y1 <- substring(SS,pp+8,pp+9)
   pp <- pp + 11
-  x2 <- substring(SS,pp,pp+7)  
+  x2 <- substring(SS,pp,pp+7)
   y2 <- substring(SS,pp+8,pp+9)
   pp <- pp + 11
-  x3 <- substring(SS,pp,pp+7)  
+  x3 <- substring(SS,pp,pp+7)
   y3 <- substring(SS,pp+8,pp+9)
   pp <- pp + 11
-  x4 <- substring(SS,pp,pp+7)  
+  x4 <- substring(SS,pp,pp+7)
   y4 <- substring(SS,pp+8,pp+9)
   pp <- pp + 11
-  x5 <- substring(SS,pp,pp+7)  
+  x5 <- substring(SS,pp,pp+7)
   y5 <- substring(SS,pp+8,pp+9)
   pp <- pp + 11
-  x6 <- substring(SS,pp,pp+7)  
+  x6 <- substring(SS,pp,pp+7)
   y6 <- substring(SS,pp+8,pp+9)
 
   xx1 <- endf.number(x1,y1)
@@ -160,14 +160,14 @@ read.selected.IAEA.photonuclear.data <- function(pn="", save.data.to.file=TRUE, 
 # To read selected IAEA 2019 photonuclear data.
 
 #####################################################
-# Collection of cross section data from the IAEA photonuclear (2019) data base for interesting 
+# Collection of cross section data from the IAEA photonuclear (2019) data base for interesting
 # isotopes (H-2, O-12, Al-27, W-180, W-182, W-183, W-184, W-186).
 
 # In most cases I first read the total cross section for the (gamma, any nuclear event)-reaction.
 # This is the (gamma,abs) cross section as the gamma is absorbed.
 
 # Secondly, I normally get the cross section for neutron production: (gamma, n) where
-# we n represent any number of neutrons produced by the event, regardless of any 
+# we n represent any number of neutrons produced by the event, regardless of any
 # additional particles (protons, alphas etc.).
 
 # Here I have manually identified the relevant (hopefully correct) parts of the IAEA ENDF files
@@ -265,7 +265,7 @@ df.W180.n <- read.endf(
                 )
 
 df.W182.abs <- read.endf(
-                pn = pn,                
+                pn = pn,
                 fn="g_74-W-182_7431.endf",
                 line.start=136,
                 line.stop=169,
@@ -278,7 +278,7 @@ df.W182.abs <- read.endf(
                 )
 
 df.W182.n <- read.endf(
-                pn = pn,                
+                pn = pn,
                 fn="g_74-W-182_7431.endf",
                 line.start=174,
                 line.stop=202,
@@ -291,7 +291,7 @@ df.W182.n <- read.endf(
                 )
 
 df.W183.abs <- read.endf(
-                pn = pn,                
+                pn = pn,
                 fn="g_74-W-183_7434.endf",
                 line.start=131,
                 line.stop=164,
@@ -304,7 +304,7 @@ df.W183.abs <- read.endf(
                 )
 
 df.W183.n <- read.endf(
-                pn = pn,                
+                pn = pn,
                 fn="g_74-W-183_7434.endf",
                 line.start=169,
                 line.stop=198,
@@ -386,8 +386,8 @@ return(df.IAEA.photonuclear)
 
 
 
-IAEA.photonuclear.plot <- function(fn="IAEA-photonuclear-2019.txt", 
-log.wanted = TRUE, 
+IAEA.photonuclear.plot <- function(fn="IAEA-photonuclear-2019.txt",
+log.wanted = TRUE,
 MeV.min=0, MeV.max = 20.1){
 # Created: March 10, 2023
 # Revised: March 11, 2023
@@ -464,35 +464,35 @@ print("ByeBye from IAEA.photonuclear.plot")
 } # IAEA.photonuclear.plot
 
 
-IAEA.photonuclear.demo<- function(){ 
+IAEA.photonuclear.demo<- function(){
 # Plot the data
 IAEA.photonuclear.plot(
-fn="IAEA-photonuclear-2019.txt", 
+fn="IAEA-photonuclear-2019.txt",
 log.wanted = FALSE,
-MeV.min=0, 
+MeV.min=0,
 MeV.max = 50)
 
 # Plot the data
 IAEA.photonuclear.plot(
-fn="IAEA-photonuclear-2019.txt", 
+fn="IAEA-photonuclear-2019.txt",
 log.wanted = TRUE,
-MeV.min=0, 
+MeV.min=0,
 MeV.max = 50)
-}# IAEA.photonuclear.plot 
+}# IAEA.photonuclear.plot
 
 
 IAEA.photonuclear.demo()
 
 
-# Location of the IAEA 2019 ENDF-files: 
-pn.full <- "C://Users//clan//OneDrive - Danmarks Tekniske Universitet//Skrivebord//017-Library-Neutrons-photonuclear//IAEA-2019-data//iaea-pd2019.tar//iaea-pd2019//iaea-pd2019//"
+
+# Location of the IAEA 2019 ENDF-files:
+pn.full <- paste(getwd(),"/data/",sep="")
 
 # How to read the data
 df <- read.selected.IAEA.photonuclear.data(
-pn = pn.full,  
-save.data.to.file=!TRUE, 
+pn = pn.full,
+save.data.to.file=!TRUE,
 save.fn="IAEA-photonuclear-2019.txt")
-
 
 
 grand.plotfilename <- "IAEA-photonuclear-data-plot-001"
@@ -514,7 +514,7 @@ close.device.wanted <- TRUE
 }
 
 if(FALSE){
-postscript(paste(grand.plotfilename,".ps",sep=""),onefile=TRUE) 
+postscript(paste(grand.plotfilename,".ps",sep=""),onefile=TRUE)
 close.device.wanted <- TRUE
 }
 
@@ -523,7 +523,7 @@ Created: March 9, 2023
 Revised: March 16, 2023
 Name   : Claus E. Andersen, Technical University of Denmark
 
-Objective: To read cross sections from the IAEA 2019 photonuclear 
+Objective: To read cross sections from the IAEA 2019 photonuclear
 data base. Demonstration pf the R-package: clanENDF
 
 IAEA normaly starts with the total photon absorption cross section,
