@@ -14,5 +14,5 @@
 #   Test Package:              'Cmd + Shift + T'
 
 hello <- function() {
-  print("Hello clanENDF, again  world!")
+  print("Hello clanENDF, again emt  world!")
 }
