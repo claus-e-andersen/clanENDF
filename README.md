@@ -16,6 +16,27 @@ The read.endf function can only read the pure data. It cannt read meta data from
 Meta data can, however, be assigned to the data. This facilitates
 data from different isotopes or processes etc.
 
+The data read by the function could look like this:
+
+```
+
+#    MeV      barn              file Z A element isotope process
+#1 2.224 0.0000000 g_1-H-2_0128.endf 1 2       H     H-2   total
+#2 2.300 0.0006581 g_1-H-2_0128.endf 1 2       H     H-2   total
+#3 2.600 0.0011830 g_1-H-2_0128.endf 1 2       H     H-2   total
+#4 3.000 0.0018280 g_1-H-2_0128.endf 1 2       H     H-2   total
+#5 3.500 0.0022800 g_1-H-2_0128.endf 1 2       H     H-2   total
+#6 4.000 0.0024540 g_1-H-2_0128.endf 1 2       H     H-2   total
+#
+#                           what
+#1 cross section for (gamma,abs)
+#2 cross section for (gamma,abs)
+#3 cross section for (gamma,abs)
+#4 cross section for (gamma,abs)
+#5 cross section for (gamma,abs)
+#6 cross section for (gamma,abs)
+
+
 # Sample use of package
 I used this package (and the data it contains) to evaluate the ability of the Monte-Carlo software TOPAS to
 model photonuclear reactions. The results have been uploaded (March 2023) to the Topas user forum.
