@@ -17,14 +17,14 @@ Meta data can, however, be assigned to the data. This facilitates
 data from different isotopes or processes etc.
 
 # Sample call
-pn is the path to the data. If you are reading the data provided with the package
+The path to the data is needed. If you are reading the data provided with the package
 you can probably find the data using the second path defined below:
 ```
 pn.full <- paste(getwd(),"/data/",sep="") 
 
 pn.full <- paste(.libPaths(),"/clanENDF","/data/",sep="")
 ``` 
-and the call then is;
+The read.endf can then be called as follows;
 ```
 df.H2.abs <- read.endf(
                 pn = pn.full,
