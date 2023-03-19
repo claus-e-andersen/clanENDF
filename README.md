@@ -67,7 +67,5 @@ To run the code using the data included with the package, please see the help fo
 ```
 ?IAEA.photonuclear.demo()
 IAEA.photonuclear.demo()
-
-
-
+```
 
