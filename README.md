@@ -6,17 +6,19 @@ Simple read function for nuclear data from IAEA files in ENDF format.
 
 # Photonuclear data from IAEA (2019)
 Data in ENDF-format can be found here: 
-'''
+```
 https://www−nds.iaea.org/photonuclear/
 
 https://www−nds.iaea.org/photonuclear/pdfilelist.html
-'''
+```
 
 # Photonuclear data included in package
 Collection of cross section data from the IAEA photonuclear (2019)
 data base for interesting isotopes:
 
+```
 H-2, O-12, Al-27, W-180, W-182, W-183, W-184, W-186.
+```
 
 In most cases I first read the total cross section for the
 (gamma, any nuclear event)-reaction. This is the (gamma,abs)
@@ -39,4 +41,3 @@ Meta data can be assigned to the data. This facilitates
 data from different isotopes or processes etc.
 
 
-yy
