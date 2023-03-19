@@ -11,3 +11,4 @@ Encoding: UTF-8
 LazyData: true
 URL: https://github.com/claus-e-andersen/clanENDF
 BugReports: https://github.com/claus-e-andersen/clanENDF/issues
+RoxygenNote: 7.2.1

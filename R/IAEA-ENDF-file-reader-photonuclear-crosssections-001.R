@@ -7,6 +7,19 @@ require(clanLattice)
 #########################################################
 # Helper function to identify endf-numbers
 #########################################################
+#' @title endf.number
+#' @description  Helper function for ENDF file numbers.
+#' @details
+#' # Convert ENDF data to a floating point number.
+#' A raw ENDF number is written as 2.224000+6 - i.e. without any E.
+#' This function adds the E (e.g. 2.224000E+6) and convert to a float.
+#' Simple read function for nuclear data from IAEA files in ENDF format.
+#'
+#'
+#' @param x = first part of number (e.g. x="4.555" if number is x="4.555-3").
+#' @param y = last part of number (e.g. y="-3" if number is x="4.555-3").
+#' @return a float.
+#' @export
 endf.number <- function(x="4.555",y="-3"){
 # Convert ENDF data to a floating point number.
 # A raw ENDF number is written as 2.224000+6 - i.e. without any E.
@@ -24,6 +37,75 @@ if(!y==""){
 return(xx)
 }# function
 
+
+#' @title read.endf
+#' @description  Simple read function for nuclear data from IAEA files in ENDF format.
+#' @details
+#' Simple read function for nuclear data from IAEA files in ENDF format.
+#'
+#' The line.start and line.stop can be found by manual inspection
+#' of the endf data file. The read.endf function can only read
+#' the pure data (no meta data).
+#'
+#' Meta data can be assigned to the data. This facilitates
+#' data from different isotopes or processes etc.
+#'
+#' #########################################################
+#'  Main function read endf-files
+#'  The user has to manually identify the part of the ENDF file which
+#'  is of interest by given the start and stop lines.
+#'  The user can assign meta data to the results.
+#' ########################################################
+#'  Created: March 10, 2023
+#' Revised: March 11, 2023
+#' Name   : Claus E. Andersen
+#' Motivation:
+#' To read IAEA 2019 photonuclear data.
+#
+#' Input:
+#' pn = path to where the ENDF file is
+#' fn = file name of ENDF file
+#' line.start = Where to start reading from the fine (line number)
+#' line.stop  = Where to stop reading from the fine (line number)
+#' Z = Atomic number (meta data to be added to the output)
+#' A = Atomic mass (meta data to be added to the output)
+#' element = Element name (meta data to be added to the output)
+#' isotope = Isotope name (meta data to be added to the output)
+#' process = Process name (meta data to be added to the output)
+#' what    = Description (meta data to be added to the output)
+#
+#' Output:
+#' A data frame like this:
+#
+#'     MeV      barn              file Z A element isotope process
+#' 1 2.224 0.0000000 g_1-H-2_0128.endf 1 2       H     H-2   total
+#' 2 2.300 0.0006581 g_1-H-2_0128.endf 1 2       H     H-2   total
+#' 3 2.600 0.0011830 g_1-H-2_0128.endf 1 2       H     H-2   total
+#' 4 3.000 0.0018280 g_1-H-2_0128.endf 1 2       H     H-2   total
+#' 5 3.500 0.0022800 g_1-H-2_0128.endf 1 2       H     H-2   total
+#' 6 4.000 0.0024540 g_1-H-2_0128.endf 1 2       H     H-2   total
+#'
+#'                            what
+#' 1 cross section for (gamma,abs)
+#' 2 cross section for (gamma,abs)
+#' 3 cross section for (gamma,abs)
+#' 4 cross section for (gamma,abs)
+#' 5 cross section for (gamma,abs)
+#' 6 cross section for (gamma,abs)
+#'
+#' @param pn = path to folder with endf data files (ending with a /).
+#' @param fn = file name (e.g. "g_1-H-2_0128.endf")
+#' @param line.start = fist line in the endf file that you need to extract.
+#' @param line.start =  = last line in the endf file that you need to extract.
+#' @param Z = atomic number (meta data).
+#' @param A = atomic mass (meta data).
+#' @param element = element name (e.g. "H") (meta data).
+#' @param isotope = isotope name (e.g. "H-2") (meta data).
+#' @param process = name of process covered by cross section (meta data).
+#' @param what = free text description (meta data).
+#' @return a data frame with data from endf file + meta data
+#'
+#' @export
 read.endf <- function(pn="",
                       fn="g_1-H-2_0128.endf",
                       line.start=91,
@@ -152,6 +234,34 @@ return(df)
 } # end function
 
 
+#' @title read.selected.IAEA.photonuclear.data
+#' @description  Helper function for ENDF file numbers.
+#' @details
+#' Created: March 10, 2023
+#' Revised: March 11, 2023
+#' Name   : Claus E. Andersen
+#' Motivation:
+#' To read selected IAEA 2019 photonuclear data.
+
+#' ####################################################
+#' Collection of cross section data from the IAEA photonuclear (2019) data base for interesting
+#' isotopes (H-2, O-12, Al-27, W-180, W-182, W-183, W-184, W-186).
+
+#' In most cases I first read the total cross section for the (gamma, any nuclear event)-reaction.
+#' This is the (gamma,abs) cross section as the gamma is absorbed.
+
+#' Secondly, I normally get the cross section for neutron production: (gamma, n) where
+#' we n represent any number of neutrons produced by the event, regardless of any
+#' additional particles (protons, alphas etc.).
+
+#' Here I have manually identified the relevant (hopefully correct) parts of the IAEA ENDF files
+#' and assigned meta data to them. Finally, I join everything into a single dataframe.
+#'
+#' @param pn = path to folder with endf data files (ending with a /).
+#' @param save.data.to.file = boolean (TRUE/FALSE).
+#' @param save.fn = file name with the extracted data (e.g. "IAEA-photonuclear-2019.txt").
+#' @return a float.
+#' @export
 read.selected.IAEA.photonuclear.data <- function(pn="", save.data.to.file=TRUE, save.fn="IAEA-photonuclear-2019.txt"){
 # Created: March 10, 2023
 # Revised: March 11, 2023
@@ -386,6 +496,25 @@ return(df.IAEA.photonuclear)
 
 
 
+
+
+#' @title IAEA.photonuclear.plot
+#' @description  Read file with all data and make a trellis plot.
+#' @details
+#' # Created: March 10, 2023
+#' Revised: March 11, 2023
+#' Revised: March 13, 2023
+#' Name: Claus E. Andersen
+#' Objective take the IAEA data from the IAEA in the file file fn,
+#' and show the results.
+
+#' @param pn = path to folder with endf data files (ending with a /).
+#' @param fn = file name with the data to read (e.g. "IAEA-photonuclear-2019.txt").
+#' @param log.wanted = TRUE or FALSE.
+#' @param MeV.min = lower energy interval in MeV.
+#' @param MeV.max = upper energy interval in MeV.
+#' @return a float.
+#' @export
 IAEA.photonuclear.plot <- function(pn="",
                                    fn="IAEA-photonuclear-2019.txt",
 log.wanted = TRUE,
@@ -465,7 +594,27 @@ print("ByeBye from IAEA.photonuclear.plot")
 } # IAEA.photonuclear.plot
 
 
+
+#' @title IAEA.photonuclear.demo
+#' @description  Demonstration function
+#' @details
+#' Simple read function for nuclear data from IAEA files in ENDF format.
+#'
+#' Location of the IAEA 2019 ENDF-files. Could be here:
+#'   pn.full <- paste(getwd(),"/data/",sep="")
+
+#' How to read the data
+#'    df <- read.selected.IAEA.photonuclear.data(
+#'    pn = pn.full,
+#'    save.data.to.file=TRUE,
+#'    save.fn="IAEA-photonuclear-2019.txt")
+#'
+#' Then call the demo function:
+#'   IAEA.photonuclear.demo()
+#'
+#' @export
 IAEA.photonuclear.demo<- function(){
+print(" Make sure the function can find: IAEA-photonuclear-2019.txt !!! See help.")
 # Plot the data
 IAEA.photonuclear.plot(
 fn="IAEA-photonuclear-2019.txt",
@@ -480,78 +629,4 @@ log.wanted = TRUE,
 MeV.min=0,
 MeV.max = 50)
 }# IAEA.photonuclear.plot
-
-
-IAEA.photonuclear.demo()
-
-
-
-# Location of the IAEA 2019 ENDF-files:
-pn.full <- paste(getwd(),"/data/",sep="")
-
-# How to read the data
-df <- read.selected.IAEA.photonuclear.data(
-pn = pn.full,
-save.data.to.file=TRUE,
-save.fn="IAEA-photonuclear-2019.txt")
-
-
-grand.plotfilename <- "IAEA-photonuclear-data-plot-001"
-
-if(FALSE){
-png.fac <- 1.5
-png(filename = paste(grand.plotfilename,"%03d.png",sep=""),
-   width = png.fac*20, height = png.fac*13, units = "cm", pointsize = png.fac*10,
-    bg = "white", res = 600, family = "arial", restoreConsole = TRUE,
-    type = c("windows", "cairo", "cairo-png")[1])
-close.device.wanted <- TRUE
-}
-
-if(!FALSE){
-inch.fac <- 2.54 / 1.2
-pdf(paste(grand.plotfilename,".pdf",sep=""), width = 29.7/inch.fac, height = 21/inch.fac,pointsize=19,family="Courier")
-#dev.off()
-close.device.wanted <- TRUE
-}
-
-if(FALSE){
-postscript(paste(grand.plotfilename,".ps",sep=""),onefile=TRUE)
-close.device.wanted <- TRUE
-}
-
-txt <- "
-Created: March 9, 2023
-Revised: March 16+20, 2023
-Name   : Claus E. Andersen, Technical University of Denmark
-
-Objective: To read cross sections from the IAEA 2019 photonuclear
-data base. Demonstration of the R-package: clanENDF.
-
-Github repository:
-
-   https://github.com/claus-e-andersen/clanENDF
-
-IAEA normaly starts with the total photon absorption cross section,
-i.e. the probability for the photon to be absorbed regardless
-what then happens.
-
-Then they normally give the cross section for neutron production.
-
-
-IAEA data:
-
-  https://www-nds.iaea.org/photonuclear/
-
-
-The original ENDF-6 format filecan be downloaded here:
-
-  https://www-nds.iaea.org/photonuclear/pdfilelist.html
-"
-
-txtplot(txt)
-
-IAEA.photonuclear.demo()
-
-# Close device - if plotting to fales
-if(close.device.wanted) dev.off()
 
