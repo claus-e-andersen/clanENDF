@@ -16,6 +16,10 @@ The read.endf function can only read the pure data. It cannt read meta data from
 Meta data can, however, be assigned to the data. This facilitates
 data from different isotopes or processes etc.
 
+# Sample use of package
+I used this package (and the data it contains) to evaluate the ability of the Monte-Carlo software TOPAS to
+do model photonuclear reactions. The results have been uploaded (March 2023) to the Topas user forum.
+
 # Photonuclear data from IAEA (2019)
 Data in ENDF-format can be found here: 
 ```
