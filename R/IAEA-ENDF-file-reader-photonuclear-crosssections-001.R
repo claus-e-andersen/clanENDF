@@ -386,7 +386,8 @@ return(df.IAEA.photonuclear)
 
 
 
-IAEA.photonuclear.plot <- function(fn="IAEA-photonuclear-2019.txt",
+IAEA.photonuclear.plot <- function(pn="",
+                                   fn="IAEA-photonuclear-2019.txt",
 log.wanted = TRUE,
 MeV.min=0, MeV.max = 20.1){
 # Created: March 10, 2023
@@ -491,7 +492,7 @@ pn.full <- paste(getwd(),"/data/",sep="")
 # How to read the data
 df <- read.selected.IAEA.photonuclear.data(
 pn = pn.full,
-save.data.to.file=!TRUE,
+save.data.to.file=TRUE,
 save.fn="IAEA-photonuclear-2019.txt")
 
 
