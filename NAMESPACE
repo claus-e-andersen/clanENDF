@@ -2,6 +2,7 @@
 
 export(IAEA.photonuclear.demo)
 export(IAEA.photonuclear.plot)
+export(clanENDF)
 export(endf.number)
 export(read.endf)
 export(read.selected.IAEA.photonuclear.data)

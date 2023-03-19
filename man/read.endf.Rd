@@ -53,6 +53,7 @@ the pure data (no meta data).
 Meta data can be assigned to the data. This facilitates
 data from different isotopes or processes etc.
 
+\preformatted{
 #########################################################
  Main function read endf-files
  The user has to manually identify the part of the ENDF file which
@@ -92,4 +93,5 @@ A data frame like this:
 4 cross section for (gamma,abs)
 5 cross section for (gamma,abs)
 6 cross section for (gamma,abs)
+}
 }

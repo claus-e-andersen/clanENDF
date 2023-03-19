@@ -31,10 +31,12 @@ a float.
 Read file with all data and make a trellis plot.
 }
 \details{
+\preformatted{
 # Created: March 10, 2023
 Revised: March 11, 2023
 Revised: March 13, 2023
 Name: Claus E. Andersen
 Objective take the IAEA data from the IAEA in the file file fn,
 and show the results.
+}
 }

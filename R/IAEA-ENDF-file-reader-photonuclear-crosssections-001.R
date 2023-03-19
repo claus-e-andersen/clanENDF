@@ -50,6 +50,7 @@ return(xx)
 #' Meta data can be assigned to the data. This facilitates
 #' data from different isotopes or processes etc.
 #'
+#' \preformatted{
 #' #########################################################
 #'  Main function read endf-files
 #'  The user has to manually identify the part of the ENDF file which
@@ -92,7 +93,7 @@ return(xx)
 #' 4 cross section for (gamma,abs)
 #' 5 cross section for (gamma,abs)
 #' 6 cross section for (gamma,abs)
-#'
+#' }
 #' @param pn = path to folder with endf data files (ending with a /).
 #' @param fn = file name (e.g. "g_1-H-2_0128.endf")
 #' @param line.start = fist line in the endf file that you need to extract.
@@ -237,6 +238,7 @@ return(df)
 #' @title read.selected.IAEA.photonuclear.data
 #' @description  Helper function for ENDF file numbers.
 #' @details
+#' \preformatted{
 #' Created: March 10, 2023
 #' Revised: March 11, 2023
 #' Name   : Claus E. Andersen
@@ -244,19 +246,23 @@ return(df)
 #' To read selected IAEA 2019 photonuclear data.
 
 #' ####################################################
-#' Collection of cross section data from the IAEA photonuclear (2019) data base for interesting
-#' isotopes (H-2, O-12, Al-27, W-180, W-182, W-183, W-184, W-186).
-
-#' In most cases I first read the total cross section for the (gamma, any nuclear event)-reaction.
-#' This is the (gamma,abs) cross section as the gamma is absorbed.
-
-#' Secondly, I normally get the cross section for neutron production: (gamma, n) where
-#' we n represent any number of neutrons produced by the event, regardless of any
-#' additional particles (protons, alphas etc.).
-
-#' Here I have manually identified the relevant (hopefully correct) parts of the IAEA ENDF files
-#' and assigned meta data to them. Finally, I join everything into a single dataframe.
+#' Collection of cross section data from the IAEA photonuclear (2019)
+#' data base for interesting isotopes:
+#' H-2, O-12, Al-27, W-180, W-182, W-183, W-184, W-186.
 #'
+#' In most cases I first read the total cross section for the
+#' (gamma, any nuclear event)-reaction. This is the (gamma,abs)
+#' cross section as the gamma is absorbed.
+#'
+#' Secondly, I normally get the cross section for neutron production:
+#' (gamma, n) where we n represent any number of neutrons produced by
+#' the event, regardless of any additional particles (protons, alphas
+#' etc.).
+#'
+#' Here I have manually identified the relevant (hopefully correct)
+#' parts of the IAEA ENDF files and assigned meta data to them. Finally,
+#' I join everything into a single dataframe.
+#' }
 #' @param pn = path to folder with endf data files (ending with a /).
 #' @param save.data.to.file = boolean (TRUE/FALSE).
 #' @param save.fn = file name with the extracted data (e.g. "IAEA-photonuclear-2019.txt").
@@ -501,13 +507,14 @@ return(df.IAEA.photonuclear)
 #' @title IAEA.photonuclear.plot
 #' @description  Read file with all data and make a trellis plot.
 #' @details
+#' \preformatted{
 #' # Created: March 10, 2023
 #' Revised: March 11, 2023
 #' Revised: March 13, 2023
 #' Name: Claus E. Andersen
 #' Objective take the IAEA data from the IAEA in the file file fn,
 #' and show the results.
-
+#' }
 #' @param pn = path to folder with endf data files (ending with a /).
 #' @param fn = file name with the data to read (e.g. "IAEA-photonuclear-2019.txt").
 #' @param log.wanted = TRUE or FALSE.
@@ -601,16 +608,27 @@ print("ByeBye from IAEA.photonuclear.plot")
 #' Simple read function for nuclear data from IAEA files in ENDF format.
 #'
 #' Location of the IAEA 2019 ENDF-files. Could be here:
-#'   pn.full <- paste(getwd(),"/data/",sep="")
-
+#'
+#'    \preformatted{
+#'     pn.full <- paste(getwd(),"/data/",sep="")}
+#'
+#' Or if the data are coming with the clanENDF package you may
+#' be able to get it using:
+#'
+#'    \preformatted{
+#'    #' pn.full <- paste(.libPaths(),"/clanENDF","/data/",sep="")}
+#'
 #' How to read the data
+#'
+#'    \preformatted{
 #'    df <- read.selected.IAEA.photonuclear.data(
 #'    pn = pn.full,
 #'    save.data.to.file=TRUE,
-#'    save.fn="IAEA-photonuclear-2019.txt")
+#'    save.fn="IAEA-photonuclear-2019.txt")}
 #'
 #' Then call the demo function:
-#'   IAEA.photonuclear.demo()
+#'   \preformatted{
+#'     IAEA.photonuclear.demo()}
 #'
 #' @export
 IAEA.photonuclear.demo<- function(){
@@ -630,3 +648,42 @@ MeV.min=0,
 MeV.max = 50)
 }# IAEA.photonuclear.plot
 
+#' @title clanENDF
+#' @description  Package for reading IAEA nuclear data files.
+#' This is a simple dummy function to ease access to the help index.
+#'
+#' \preformatted{
+#'  clanENDF()
+#'
+#'  ?clanENDF # gives you an index of functions in package
+#'   }
+#'
+#' Main functions for computation of the density-effect correction are:
+#' Simple read function for nuclear data from IAEA files in ENDF format.
+#'
+#' Location of the IAEA 2019 ENDF-files. Could be here:
+#'
+#'    \preformatted{
+#'     pn.full <- paste(getwd(),"/data/",sep="")}
+#'
+#' Or if the data are coming with the clanENDF package you may
+#' be able to get it using:
+#'
+#'    \preformatted{
+#'    #' pn.full <- paste(.libPaths(),"/clanENDF","/data/",sep="")}
+#'
+#' How to read the data
+#'
+#'    \preformatted{
+#'    df <- read.selected.IAEA.photonuclear.data(
+#'    pn = pn.full,
+#'    save.data.to.file=TRUE,
+#'    save.fn="IAEA-photonuclear-2019.txt")}
+#'
+#' Then call the demo function:
+#'   \preformatted{
+#'     IAEA.photonuclear.demo()}
+#' @export
+clanENDF <- function(){
+  # Dummy function
+}

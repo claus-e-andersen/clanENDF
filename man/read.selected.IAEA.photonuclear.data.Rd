@@ -25,19 +25,28 @@ a float.
 Helper function for ENDF file numbers.
 }
 \details{
+\preformatted{
 Created: March 10, 2023
 Revised: March 11, 2023
 Name   : Claus E. Andersen
 Motivation:
 To read selected IAEA 2019 photonuclear data.
 ####################################################
-Collection of cross section data from the IAEA photonuclear (2019) data base for interesting
-isotopes (H-2, O-12, Al-27, W-180, W-182, W-183, W-184, W-186).
-In most cases I first read the total cross section for the (gamma, any nuclear event)-reaction.
-This is the (gamma,abs) cross section as the gamma is absorbed.
-Secondly, I normally get the cross section for neutron production: (gamma, n) where
-we n represent any number of neutrons produced by the event, regardless of any
-additional particles (protons, alphas etc.).
-Here I have manually identified the relevant (hopefully correct) parts of the IAEA ENDF files
-and assigned meta data to them. Finally, I join everything into a single dataframe.
+Collection of cross section data from the IAEA photonuclear (2019)
+data base for interesting isotopes:
+H-2, O-12, Al-27, W-180, W-182, W-183, W-184, W-186.
+
+In most cases I first read the total cross section for the
+(gamma, any nuclear event)-reaction. This is the (gamma,abs)
+cross section as the gamma is absorbed.
+
+Secondly, I normally get the cross section for neutron production:
+(gamma, n) where we n represent any number of neutrons produced by
+the event, regardless of any additional particles (protons, alphas
+etc.).
+
+Here I have manually identified the relevant (hopefully correct)
+parts of the IAEA ENDF files and assigned meta data to them. Finally,
+I join everything into a single dataframe.
+}
 }
