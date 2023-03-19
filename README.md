@@ -74,25 +74,31 @@ https://www−nds.iaea.org/photonuclear/pdfilelist.html
 ```
 
 # Photonuclear data included in package
-Collection of cross section data from the IAEA photonuclear (2019)
-data base for interesting isotopes:
+The clanENDF package contain a small collection of cross section data from the IAEA photonuclear (2019)
+data base for a few isotopes:
 
 ```
 H-2, O-12, Al-27, W-180, W-182, W-183, W-184, W-186.
 ```
+The data file:
 
-In most cases I first read the total cross section for the
+```
+IAEA-photonuclear-2019.txt
+```
+contains data for all isptopes given above.
+
+In most cases I have first read the total cross section for the
 (gamma, any nuclear event)-reaction. This is the (gamma,abs)
 cross section as the gamma is absorbed.
 
-Secondly, I normally get the cross section for neutron production:
-(gamma, n) where we n represent any number of neutrons produced by
+Secondly, I have normally read the cross section for neutron production:
+(gamma, n) where n represents any number of neutrons produced by
 the event, regardless of any additional particles (protons, alphas
 etc.).
 
-Here I have manually identified the relevant (hopefully correct)
+I have manually identified the relevant (hopefully correct)
 parts of the IAEA ENDF files and assigned meta data to them. Finally,
-I join everything into a single dataframe.
+I have joined everything into a single file.
 
 # How to install the package?
 You will need devtools to install the package. You will need clanTools and dplyr to run the package.
