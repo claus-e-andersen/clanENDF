@@ -11,7 +11,7 @@ are the key parameters to the call to the main function:
 read.endf()
 ```
 
-The read.endf function can only read the pure data. It cannt read meta data from the endf file.
+The read.endf function can only read the pure data. It cannot read meta data from the endf file.
 
 Meta data can, however, be assigned to the data. This facilitates
 data from different isotopes or processes etc.
