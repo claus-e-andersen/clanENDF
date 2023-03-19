@@ -520,11 +520,15 @@ close.device.wanted <- TRUE
 
 txt <- "
 Created: March 9, 2023
-Revised: March 16, 2023
+Revised: March 16+20, 2023
 Name   : Claus E. Andersen, Technical University of Denmark
 
 Objective: To read cross sections from the IAEA 2019 photonuclear
-data base. Demonstration pf the R-package: clanENDF
+data base. Demonstration of the R-package: clanENDF.
+
+Github repository:
+
+   https://github.com/claus-e-andersen/clanENDF
 
 IAEA normaly starts with the total photon absorption cross section,
 i.e. the probability for the photon to be absorbed regardless
