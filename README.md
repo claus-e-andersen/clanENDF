@@ -18,9 +18,11 @@ data from different isotopes or processes etc.
 
 # Sample call
 pn is the path to the data. If you are reading the data provided with the package
-you can probably find the data using the path:
+you can probably find the data using the second path defined below:
 ```
-pn.full <- paste(getwd(),"/data/",sep="")}
+pn.full <- paste(getwd(),"/data/",sep="") 
+
+pn.full <- paste(.libPaths(),"/clanENDF","/data/",sep="")
 ``` 
 and the call then is;
 ```
