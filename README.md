@@ -4,10 +4,16 @@ The package contains photonuclear data for a few selected isotopes.
 
 Simple read function for nuclear data from IAEA files in ENDF format.
 
-For each ENDF file, one manually identify the data of interest by line.start and line.stop. 
-The read.endf function can only read the pure data (no meta data).
+For each ENDF file, one manually needs to identify the data of interest by means of
+the start and stop lines in the file. The file name and the line.start and line.stop
+are the key parameters to the call to the main function:
+```
+read.endf()
+```
 
-Meta data can be assigned to the data. This facilitates
+The read.endf function can only read the pure data. It cannt read meta data from the endf file.
+
+Meta data can, however, be assigned to the data. This facilitates
 data from different isotopes or processes etc.
 
 # Photonuclear data from IAEA (2019)
