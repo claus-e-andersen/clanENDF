@@ -18,11 +18,11 @@ data from different isotopes or processes etc.
 
 # Sample call
 pn is the path to the data. If you are reading the data provided with the package
-you can probably find the path as:
+you can probably find the data using the path:
 ```
 pn.full <- paste(getwd(),"/data/",sep="")}
-
- 
+``` 
+and the call then is;
 ```
 df.H2.abs <- read.endf(
                 pn = pn.full,
