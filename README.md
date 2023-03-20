@@ -59,7 +59,8 @@ The data read by the function should look like this:
 Note that the two first columns are the actual data from the ENDF file:
 (i) energy in MeV and (ii) cross section in barn (1 barn = 1e-24 cm2).
 
-The data were extracted from line 91 to 100 in the g_1-H-2_0128.endf file:
+The data were extracted from line 91 to 100 in the g_1-H-2_0128.endf file (please
+note the annotations in the right side of the text below):
 
 ```
  IAEA/PD-2019  H -  2                                                1 0  0
@@ -163,7 +164,8 @@ The data file:
 ```
 IAEA-photonuclear-2019.txt
 ```
-contains data for all isotopes given above.
+contains data for all isotopes given above. This file is in the subfolder
+called data.
 
 In most cases I have first read the total cross section for the
 (gamma, any nuclear event)-reaction. This is the (gamma,abs)
@@ -179,15 +181,17 @@ parts of the IAEA ENDF files and assigned meta data to them. Finally,
 I have joined everything into a single file.
 
 # How to install the package?
-You will need devtools to install the package. You will need clanTools and dplyr to run the package.
+You will need devtools to install the package. You will need clanTools, dplyr and lattice to run the package.
 ```
-install.packages("devtools","dplyr")
+install.packages("devtools")
+install.packages("dplyr")
+install.packages("lattice")
 library(devtools)
 library(dplyr)
+library(lattice)
 install_github("claus-e-andersen/clanTools)
 install_github("claus-e-andersen/clanENDF)
 library(clanENDF)
-library(dplyr)
 library(clanTools)
 ```
 To run the code using the data included with the package, please see the help for the demo function:
