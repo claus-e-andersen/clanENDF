@@ -2,8 +2,6 @@
 clanENDF is an R package for reading IAEA nuclear data in the ENDF format.
 The package contains photonuclear data for a few selected isotopes.
 
-Simple read function for nuclear data from IAEA files in ENDF format.
-
 For each ENDF file, one manually needs to identify the data of interest by means of
 the start and stop lines in the file. The file name and the line.start and line.stop
 are the key parameters to the call to the main function:
@@ -80,6 +78,10 @@ data base for a few isotopes:
 ```
 H-2, O-12, Al-27, W-180, W-182, W-183, W-184, W-186.
 ```
+You can find a plot of these data here:
+
+\url{https://github.com/claus-e-andersen/clanENDF/blob/main/IAEA-photonuclear-data-plot-001.pdf}
+
 The data file:
 
 ```
