@@ -59,7 +59,7 @@ The data read by the function should look like this:
 Note that the two first columns are the actual data from the ENDF file:
 (i) energy in MeV and (ii) cross section in barn (1 barn = 1e-24 cm2).
 
-The data were extracted from line 91 ro 100 in the g_1-H-2_0128.endf file:
+The data were extracted from line 91 to 100 in the g_1-H-2_0128.endf file:
 
 ```
  IAEA/PD-2019  H -  2                                                1 0  0
