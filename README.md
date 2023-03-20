@@ -80,7 +80,7 @@ H-2, O-12, Al-27, W-180, W-182, W-183, W-184, W-186.
 ```
 You can find a plot of these data here:
 
-\url{https://github.com/claus-e-andersen/clanENDF/blob/main/IAEA-photonuclear-data-plot-001.pdf}
+\url{https://github.com/claus-e-andersen/clanENDF/IAEA-photonuclear-data-plot-001.pdf}
 
 The data file:
 
