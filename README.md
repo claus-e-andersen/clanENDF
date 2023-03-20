@@ -181,11 +181,11 @@ I have manually identified the relevant (hopefully correct)
 parts of the IAEA ENDF files and assigned meta data to them. Finally,
 I have joined everything into a single file.
 
-From the plot in IAEA-photonuclear-data-plot-001.pdf it is obvious that
+From the plot in IAEA-photonuclear-data-plot-001.pdf, it is obvious that
 the neutron-production cross section for high energies are larger
-than (gamma,abs). I believe this is because the neutron production
+than (gamma,abs) at the same energy. I believe this is because the neutron production
 cross section is multiplied by the number of neutrons produced. 
-The "total" cross section given by (gamma,abs) only account for
+In contrast, the "total" cross section given by (gamma,abs) only account for
 the absorbtion of the photon, and it does not matter how many neutrons
 (if any) are produced by the event.
 
