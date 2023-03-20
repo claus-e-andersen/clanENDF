@@ -56,6 +56,8 @@ The data read by the function should look like this:
 #5 cross section for (gamma,abs)
 #6 cross section for (gamma,abs)
 ```
+Note that the two first columns are the actual data from the ENDF file:
+(i) energy in MeV and (ii) cross section in barn (1 barn = 1e-24 cm2).
 
 # Use case (TOPAS evaluation)
 I used this package (and the data it contains) to evaluate the ability of the Monte-Carlo software TOPAS to
@@ -87,7 +89,7 @@ The data file:
 ```
 IAEA-photonuclear-2019.txt
 ```
-contains data for all isptopes given above.
+contains data for all isotopes given above.
 
 In most cases I have first read the total cross section for the
 (gamma, any nuclear event)-reaction. This is the (gamma,abs)
