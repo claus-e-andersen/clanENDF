@@ -167,7 +167,8 @@ IAEA-photonuclear-2019.txt
 contains data for all isotopes given above. This file is in the subfolder
 called data.
 
-In most cases I have first read the total cross section for the
+## Exactly what cross sections are in the IAEA-photonuclear-2019.txt?
+In most cases, I have first read the total cross section for the
 (gamma, any nuclear event)-reaction. This is the (gamma,abs)
 cross section as the gamma is absorbed.
 
