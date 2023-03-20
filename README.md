@@ -15,7 +15,7 @@ Meta data can, however, be assigned to the data. This facilitates
 data from different isotopes or processes etc.
 
 # Sample call
-The path to the data is needed. If you are reading the data provided with the package
+The path to folder with the data is needed for you to read any endf-files. If you are reading the data provided with the package
 you can probably find the data using the second path defined below:
 ```
 pn.full <- paste(getwd(),"/data/",sep="") 
