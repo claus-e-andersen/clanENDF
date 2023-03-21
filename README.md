@@ -1,7 +1,7 @@
 # What is clanENDF?
-clanENDF is an R package for reading nuclear data from the IAEA using the 
+clanENDF is an R package for reading nuclear data (here: cross sections for nuclear reactions) using the 
 ENDF format (Evaluated Nuclear Data File). The package contains photonuclear 
-data for a few selected isotopes from IAEA.
+data from IAEA for a few selected isotopes.
 
 The ENDF format is described in detail in documents available at the Brookhaven National Laboratory website:
 ```
