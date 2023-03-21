@@ -7,7 +7,7 @@ The ENDF format is described in detail at Brookhaven National Laboratory:
 ```
 https://www.nndc.bnl.gov/endf/
 ```
-6For each ENDF file, one manually needs to identify the data of interest by means of
+For each ENDF file, one manually needs to identify the data of interest by means of
 the start and stop lines in the file. The file name and the line.start and line.stop
 are the key parameters to the call to the main function:
 ```
