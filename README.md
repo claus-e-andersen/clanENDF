@@ -3,7 +3,7 @@ clanENDF is an R package for reading nuclear data from the IAEA using the
 ENDF format (Evaluated Nuclear Data File). The package contains photonuclear 
 data for a few selected isotopes from IAEA.
 
-The ENDF format is described in detail at Brookhaven National Laboratory:
+The ENDF format is described in detail in documents available at the Brookhaven National Laboratory website:
 ```
 https://www.nndc.bnl.gov/endf/
 ```
