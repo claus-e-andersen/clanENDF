@@ -7,9 +7,9 @@ The ENDF format is described in detail in documents available at the Brookhaven 
 ```
 https://www.nndc.bnl.gov/endf/
 ```
-For each ENDF file, one manually needs to identify the data of interest by means of
+For each ENDF file to be read by this package, one manually needs to identify the data of interest by means of
 the start and stop lines in the file. The file name and the line.start and line.stop
-are the key parameters to the call to the main function:
+are therefore the key parameters to the call to the main function:
 ```
 read.endf()
 ```
